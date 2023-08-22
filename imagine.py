@@ -89,7 +89,6 @@ def imagine(prompt):
         error_handle(__name__, e)
         return None
 
-
 def main():
     logging.basicConfig(filename='imagine.log', level=logging.INFO)
     with ThreadPool(max_workers=10) as pool:

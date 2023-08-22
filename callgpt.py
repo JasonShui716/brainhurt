@@ -1,7 +1,5 @@
 import openai
 from config import OPENAPI_ID, STORY_PROMPT, STORY_SAMPLE
-import os
-
 
 class GPT:
     def __init__(self):
