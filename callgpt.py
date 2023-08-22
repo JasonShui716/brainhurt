@@ -10,6 +10,9 @@ class GPT:
     def add_message(self, message):
         self.messages.append(message)
 
+    def set_message(self, messages):
+        self.messages = messages
+
     def call_gpt(self):
         res = openai.ChatCompletion.create(
             model=self.model,
