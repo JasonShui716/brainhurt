@@ -1,5 +1,5 @@
 import openai
-from config import OPENAPI_ID, STORY_PROMPT
+from config import OPENAPI_ID, STORY_PROMPT, STORY_SAMPLE
 import os
 
 
@@ -23,4 +23,6 @@ class GPT:
 if __name__ == "__main__":
     gpt = GPT()
     gpt.add_message({"role": "user", "content": STORY_PROMPT})
+    gpt.add_message({"role": "assistant", "content": STORY_SAMPLE})
+    gpt.add_message({"role": "user", "content": "不错，再来一个"})
     print(gpt.call_gpt())
