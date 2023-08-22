@@ -21,14 +21,15 @@ class Worker:
 
     def worker(self, queue):
         while True:
+            fut = None
             if queue:
                 item = queue.get()
                 if item:
                     fut = self.pool.submit(self.task, item)
-                    if self.callback:
-                        fut.add_done_callback(self.callback)
             else:
-                self.pool.submit(self.task)
+                fut = self.pool.submit(self.task)
+            if fut and self.callback:
+                fut.add_done_callback(self.callback)
             time.sleep(self.interval_sec)
 
     def put(self, item):
